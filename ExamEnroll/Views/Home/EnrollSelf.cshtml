@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ExamEnroll.Exam>
+
+@{
+    ViewBag.Title = "EnrollSelf";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>个人报名记录</h2>
+
+<table class="table">
+    <tr>
+        <th>
+           科目
+        </th>
+        <th>
+           分值
+        </th>
+        <th>
+           考试时间
+        </th>
+        <th>
+           监考老师
+        </th>      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.Name)
+        </td>        
+    </tr>
+}
+
+</table>

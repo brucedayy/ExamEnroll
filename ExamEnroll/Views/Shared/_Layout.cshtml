@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title考试报名系统管理</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("考试报名系统管理", "Index", "Exams", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-book" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("报名信息", "Index", "Exams")</li>
+                    <li>@Html.ActionLink("考试科目", "Index", "Courses")</li>
+                    <li>@Html.ActionLink("考试时间", "Index", "ExamTimes")</li>
+                    <li>@Html.ActionLink("监考老师", "Index", "Teachers")</li>
+                    <li>@Html.ActionLink("试卷分值", "Index", "Values")</li>
+                    <li>@Html.ActionLink("通知公告", "Index", "News")</li>
+                    <li>@Html.ActionLink("用户管理", "Index", "Users")</li>
+                    <li>
+                        @{if (Session["adminuser"] == null)
+                            {
+                                <a href="/Home/AdminLogin" target="_self">
+                                    <span class="glyphicon glyphicon-user"></span>登录
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/AdminLogout" target="_self">
+                                    <span class="glyphicon glyphicon-log-out"></span>
+                                    @Session["adminuser"]
+                                </a>
+                            }
+                        }
+                    </li>
+
+                </ul>            
+            </div>        
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 计科4班杨波</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

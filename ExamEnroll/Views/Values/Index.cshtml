@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ExamEnroll.Value>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>试卷分值</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>分值</th>
+        <th>操作</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem=>item.Value1)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Value1 }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Value1 }) |*@
+            @Html.ActionLink("删除", "Delete", new { id=item.Value1 })
+        </td>
+    </tr>
+}
+
+</table>

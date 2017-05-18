@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ExamEnroll.Course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>考试科目</h2>
+
+<p>
+    @Html.ActionLink("添加", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            科目名称
+        </th>
+        <th>
+            科目详情
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @*@Html.ActionLink("编辑", "Edit", new { id=item.CourseName }) |
+            @Html.ActionLink("详情", "Details", new { id=item.CourseName }) |*@
+            @Html.ActionLink("删除", "Delete", new { id=item.CourseName })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ExamEnroll.New>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="container" style="max-width:1280px;margin-top:30px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <div style="margin:auto;"><a href="/Home/Enroll"><img src="~/images/bgnav01.png" class="img-responsive" /></a></div>
+        </div>
+        <div class="col-sm-3">
+            <div style="margin:auto;"><a href="/Home/AdminIndex"><img src="~/images/bgnav02.png" class="img-responsive" /></a></div>
+        </div>
+        <div class="col-sm-3">
+            <div style="margin:auto;"><a href="/Users/Create"><img src="~/images/bgnav03.png" class="img-responsive" /></a></div>
+        </div>
+        <div class="col-sm-3">
+            <div style="margin:auto;"><a href="/Home/EnrollSelf"><img src="~/images/bgnav04.png" class="img-responsive" /></a></div>
+        </div>
+    </div>
+</div>
+<h2>新闻公告</h2>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                &raquo;<strong>@Html.DisplayFor(modelItem => item.Title)</strong> 
+            </td>         
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+        </tr>
+    }
+
+</table>

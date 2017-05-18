@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ExamEnroll.Exam>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>报名信息</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           ID
+        </th>
+        <th>
+           用户名
+        </th>
+        <th>
+           考试科目
+        </th>
+        <th>
+           分值
+        </th>
+        <th>
+           考试时间
+        </th>
+        <th>
+           监考老师
+        </th>     
+        <th>
+            操作
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.Name)
+        </td>      
+        <td>
+            @*@Html.ActionLink("编辑", "Edit", new { id=item.Eid }) |*@
+            @*@Html.ActionLink("Details", "Details", new { id=item.Eid }) |*@
+            @Html.ActionLink("删除", "Delete", new { id=item.Eid })
+        </td>
+    </tr>
+}
+
+</table>
